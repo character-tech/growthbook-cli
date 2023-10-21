@@ -17,6 +17,7 @@ See the [official GrowthBook CLI](https://docs.growthbook.io/tools/cli) document
 * [`growthbook experiments get ID`](#growthbook-experiments-get-id)
 * [`growthbook experiments list`](#growthbook-experiments-list)
 * [`growthbook experiments results EXPERIMENTID`](#growthbook-experiments-results-experimentid)
+* [`growthbook experiments update [INPUT]`](#growthbook-experiments-update-input)
 * [`growthbook features generate-types`](#growthbook-features-generate-types)
 * [`growthbook features get FEATUREKEY`](#growthbook-features-get-featurekey)
 * [`growthbook features list`](#growthbook-features-list)
@@ -28,7 +29,6 @@ See the [official GrowthBook CLI](https://docs.growthbook.io/tools/cli) document
 * [`growthbook projects get PROJECTID`](#growthbook-projects-get-projectid)
 * [`growthbook projects list`](#growthbook-projects-list)
 * [`growthbook savedgroups create [INPUT]`](#growthbook-savedgroups-create-input)
-* [`growthbook savedgroups delete ID`](#growthbook-savedgroups-delete-id)
 * [`growthbook savedgroups get ID`](#growthbook-savedgroups-get-id)
 * [`growthbook savedgroups list`](#growthbook-savedgroups-list)
 * [`growthbook savedgroups update [INPUT]`](#growthbook-savedgroups-update-input)
@@ -240,6 +240,34 @@ DESCRIPTION
 
 EXAMPLES
   $ growthbook experiments results
+```
+
+## `growthbook experiments update [INPUT]`
+
+Update an existing experiment.
+
+```
+USAGE
+  $ growthbook experiments update [INPUT] -i <value> [-u <value>] [-p <value>] [-f <value>] [-o <value>]
+
+ARGUMENTS
+  INPUT  JSON payload for the update. Docs: [Your Docs URL]
+
+FLAGS
+  -f, --filePath=<value>    Path to input file
+  -i, --id=<value>          (required) Experiment ID to update
+  -o, --output=<value>      Path to output file, e.g. created-resource.json
+  -p, --profile=<value>     Optional profile (for projects that use multiple GrowthBook instances) default: default)
+  -u, --apiBaseUrl=<value>  Your GrowthBook instance base URL (e.g. http://localhost:3100, default:
+                            https://api.growthbook.io)
+
+DESCRIPTION
+  Update an existing experiment.
+
+EXAMPLES
+  $ growthbook experiments update
+
+  $ growthbook experiments update --filePath input.json
 ```
 
 ## `growthbook features generate-types`
@@ -501,29 +529,6 @@ EXAMPLES
   $ growthbook savedgroups create
 
   $ growthbook savedgroups create --filePath input.json
-```
-
-## `growthbook savedgroups delete ID`
-
-Delete a saved group
-
-```
-USAGE
-  $ growthbook savedgroups delete ID [-u <value>] [-p <value>]
-
-ARGUMENTS
-  ID  Saved Group ID
-
-FLAGS
-  -p, --profile=<value>     Optional profile (for projects that use multiple GrowthBook instances) default: default)
-  -u, --apiBaseUrl=<value>  Your GrowthBook instance base URL (e.g. http://localhost:3100, default:
-                            https://api.growthbook.io)
-
-DESCRIPTION
-  Delete a saved group
-
-EXAMPLES
-  $ growthbook savedgroups delete
 ```
 
 ## `growthbook savedgroups get ID`
